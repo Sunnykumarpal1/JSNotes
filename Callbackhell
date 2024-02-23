@@ -1,0 +1,23 @@
+1)CallBack Hell
+GetData=(data,callback)=>{
+    setTimeout(() => {
+        console.log("data"+data);
+        if(callback){
+            callback()
+        }
+        
+    }, 3000);
+  
+}
+GetData(1234,()=>{
+    GetData(34,()=>{
+        GetData(78)
+    })
+})
+
+// Suppose we need asynchronous in code then we use callback 
+we have 2 problem in callback
+1) Callback hell
+Suppose we pass callback in a function and again that callback has a callback function that is known as callback hell we our code grows in horizontel wise that is known as pyramid of doom
+2) inversion of control
+ here when we pass callback inside the function by that we loose the control .We don't know wheather it will be executed or not 
